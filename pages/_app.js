@@ -1,6 +1,7 @@
 import GlobalStyle from "../styles";
 import useSWR from "swr";
-import React from "react";
+import React, { Children } from "react";
+import Layout from "@/Components/Layout";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
@@ -9,7 +10,9 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
+
       <Component {...pageProps} data={data} />
+      <Layout />
     </>
   );
 }
